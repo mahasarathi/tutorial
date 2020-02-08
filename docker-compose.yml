@@ -1,0 +1,4 @@
+web:
+    image: SpringBoot_BOQN_Demo:v1
+    ports:
+    - "8080:8080"
