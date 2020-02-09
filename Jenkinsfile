@@ -39,9 +39,9 @@ node {
 		
     stage('Build Docker Image') {
       // build docker image
-      sh "whoami"
-      sh "ls -all /var/run/docker.sock"
-      sh "mv ./target/SpringBoot_BOQN_Demo*.jar ./data" 
+      bat "whoami"
+      bat "ls -all /var/run/docker.sock"
+      bat "mv ./target/SpringBoot_BOQN_Demo*.jar ./data" 
       
       dockerImage = docker.build("SpringBoot_BOQN_Demo")
     }
@@ -52,8 +52,8 @@ node {
 
       echo "Docker Image Tag Name: ${dockerImageTag}"
 
-      sh "docker login -u admin -p admin123 ${dockerRepoUrl}"
-      sh "docker tag ${dockerImageName} ${dockerImageTag}"
-      sh "docker push ${dockerImageTag}"
+      bat "docker login -u admin -p admin123 ${dockerRepoUrl}"
+      bat "docker tag ${dockerImageName} ${dockerImageTag}"
+      bat "docker push ${dockerImageTag}"
     }
 }
