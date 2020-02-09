@@ -22,7 +22,7 @@ node {
   
     stage('Build Project') {
       // build project via maven
-      bat "'${mvnHome}/bin/mvn' -f SpringBoot_BOQN_Demo/pom.xml -Dmaven.test.failure.ignore clean package"
+      bat "mvn -f SpringBoot_BOQN_Demo/pom.xml -Dmaven.test.failure.ignore clean package"
     }
 	
 	stage('Publish Tests Results'){
