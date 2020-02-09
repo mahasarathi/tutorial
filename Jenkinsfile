@@ -52,8 +52,8 @@ node {
 
       echo "Docker Image Tag Name: ${dockerImageTag}"
 
-      bat "docker login -u admin -p admin123 ${dockerRepoUrl}"
-      bat "docker tag ${dockerImageName} ${dockerImageTag}"
-      bat "docker push ${dockerImageTag}"
+      // bat '"C:/Program Files/Docker Toolbox/docker" login -u admin -p admin123 ${dockerRepoUrl}'
+      bat '"C:/Program Files/Docker Toolbox/docker" tag ${dockerImageName} ${dockerImageTag}'
+      bat '"C:/Program Files/Docker Toolbox/docker" push ${dockerImageTag}'
     }
 }
