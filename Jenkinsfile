@@ -39,9 +39,9 @@ node {
 		
     stage('Build Docker Image') {
       // build docker image
-      bat "whoami"
-      bat "ls -all /var/run/docker.sock"
-      bat "mv ./target/SpringBoot_BOQN_Demo*.jar ./data" 
+      // bat "whoami"
+      // bat "ls -all /var/run/docker.sock"
+      bat "C:/Program Files/Git/usr/bin/mv ./target/SpringBoot_BOQN_Demo*.jar ./data" 
       
       dockerImage = docker.build("SpringBoot_BOQN_Demo")
     }
