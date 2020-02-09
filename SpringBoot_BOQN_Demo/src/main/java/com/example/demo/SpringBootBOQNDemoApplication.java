@@ -20,19 +20,19 @@ import io.swagger.v3.oas.annotations.info.Info;
 import io.swagger.v3.oas.annotations.info.License;
 
 @OpenAPIDefinition(
-	info = @Info(title = "QNB Demo Rest API", version = "0.0.1-SNAPSHOT", 
+	info = @Info(title = "SpringBoot_BOQN_Demo Rest API", version = "0.0.1-SNAPSHOT", 
 		license = @License(name = "Apache 2.0 License", url = "http://www.apache.org/licenses/LICENSE-2.0.html"),
 		contact = @Contact(email = "mahasarathi22_11@yahoo.com", name = "MahaSarathi"),
-		description = "QNB demo spring boot application to show basic REST CURD operations."
+		description = "SpringBoot_BOQN_Demo spring boot application to show basic REST CURD operations."
 	)
 )
 @SpringBootApplication
-public class QnbDemoApplication {
+public class SpringBootBOQNDemoApplication {
 
-	private static final Logger LOGGER = LoggerFactory.getLogger(QnbDemoApplication.class);
+	private static final Logger LOGGER = LoggerFactory.getLogger(SpringBootBOQNDemoApplication.class);
 
 	public static void main(String[] args) {
-		SpringApplication.run(QnbDemoApplication.class, args);
+		SpringApplication.run(SpringBootBOQNDemoApplication.class, args);
 	}
 
 	@Bean

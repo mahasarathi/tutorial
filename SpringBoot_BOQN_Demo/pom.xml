@@ -10,10 +10,10 @@
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.example</groupId>
-	<artifactId>QNB_Demo</artifactId>
+	<artifactId>SpringBoot_BOQN_Demo</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>QNB_Demo</name>
-	<description>QNB Demo project using Spring Boot</description>
+	<name>SpringBoot_BOQN_Demo</name>
+	<description>SpringBoot_BOQN_Demo Demo project using Spring Boot</description>
 
 	<properties>
 		<java.version>1.8</java.version>
