@@ -22,7 +22,7 @@ node {
   
     stage('Build Project') {
       // build project via maven
-      bat "mvn -f SpringBoot_BOQN_Demo/pom.xml -Dmaven.test.failure.ignore clean package"
+      bat "L:\SPRING\TOOLS\apache-maven-3.6.3\bin\mvn -f SpringBoot_BOQN_Demo/pom.xml -Dmaven.test.failure.ignore clean package"
     }
 	
 	stage('Publish Tests Results'){
@@ -47,8 +47,7 @@ node {
           dockerImage = docker.build("SpringBoot_BOQN_Demo")
         }
       }
-      // dockerImage = "C:/Program Files/Docker Toolbox/docker" build
-	  dockerImage = docker build
+      dockerImage = "C:\Program Files\Docker\Docker\docker" build
     }
    
     stage('Deploy Docker Image'){
@@ -57,8 +56,8 @@ node {
 
       echo "Docker Image Tag Name: ${dockerImageTag}"
 
-      bat 'docker login -u mahasarathi -p Hari25*03 ${dockerRepoUrl}'
-      bat 'docker tag ${dockerImageName} ${dockerImageTag}'
-      bat 'docker push ${dockerImageTag}'
+      bat '"C:\Program Files\Docker\Docker\docker" login -u mahasarathi -p Hari25*03 ${dockerRepoUrl}'
+      bat '"C:\Program Files\Docker\Docker\docker" tag ${dockerImageName} ${dockerImageTag}'
+      bat '"C:\Program Files\Docker\Docker\docker" push ${dockerImageTag}'
     }
 }
