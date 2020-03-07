@@ -7,9 +7,9 @@ node {
     def dockerImage
     // ip address of the docker private repository(nexus)
     
-    def dockerRepoUrl = "localhost:8083"
+    def dockerRepoUrl = "https://hub.docker.com/repository/docker/mahasarathi/tutorial"
     def dockerImageName = "SpringBoot_BOQN_Demo"
-    def dockerImageTag = "${dockerRepoUrl}/${dockerImageName}:${env.BUILD_NUMBER}"
+    def dockerImageTag = "${dockerRepoUrl}/${dockerImageName}:v1"
     
     stage('Clone Repo') { // for display purposes
       // Get some code from a GitHub repository
@@ -41,9 +41,13 @@ node {
       // build docker image
       // bat "whoami"
       // bat "ls -all /var/run/docker.sock"
-      bat '"C:/Program Files/Git/usr/bin/mv" ./SpringBoot_BOQN_Demo/target/SpringBoot_BOQN_Demo*.jar ./data'
-      
-      dockerImage = docker.build("SpringBoot_BOQN_Demo")
+      // bat '"C:/Program Files/Git/usr/bin/mv" ./SpringBoot_BOQN_Demo/target/SpringBoot_BOQN_Demo*.jar ./data'
+      steps{
+        script {
+          dockerImage = docker.build("SpringBoot_BOQN_Demo")
+        }
+      }
+      dockerImage = "C:/Program Files/Docker Toolbox/docker" build
     }
    
     stage('Deploy Docker Image'){
@@ -52,7 +56,7 @@ node {
 
       echo "Docker Image Tag Name: ${dockerImageTag}"
 
-      // bat '"C:/Program Files/Docker Toolbox/docker" login -u admin -p admin123 ${dockerRepoUrl}'
+      bat '"C:/Program Files/Docker Toolbox/docker" login -u mahasarathi -p Hari25*03 ${dockerRepoUrl}'
       bat '"C:/Program Files/Docker Toolbox/docker" tag ${dockerImageName} ${dockerImageTag}'
       bat '"C:/Program Files/Docker Toolbox/docker" push ${dockerImageTag}'
     }
