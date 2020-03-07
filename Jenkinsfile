@@ -1,4 +1,16 @@
 node {
+	jdk = tool name: 'LocalJavaHome'
+	env.JAVA_HOME = "${jdk}"
+
+	echo "jdk installation path is: ${jdk}"
+
+	// next 2 are equivalents
+	bat "${jdk}/bin/java -version"
+
+	// note that simple quote strings are not evaluated by Groovy
+	// substitution is done by shell script using environment
+	bat '$JAVA_HOME/bin/java -version'
+  
     // reference to maven
     // ** NOTE: This 'LocalMaven' Maven tool must be configured in the Jenkins Global Configuration.   
     def mvnHome = tool 'LocalMaven'
@@ -18,6 +30,7 @@ node {
       // ** NOTE: This 'LocalMaven' Maven tool must be configured
       // **       in the global configuration.           
       mvnHome = tool 'LocalMaven'
+	  JAVA_HOME = tool 'LocalJavaHome'
     }    
   
     stage('Build Project') {
